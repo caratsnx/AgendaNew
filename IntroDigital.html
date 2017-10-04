@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            IntroDigital
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Enable all requests, inline styles, and eval() -->
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <link href="files/resources/lib/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="files/resources/lib/theme/flat-ui/flat-ui.css" rel="stylesheet" />
+        <link href="files/resources/lib/jquerymobile/1.4.4/jquery.mobile.structure-1.4.4.css"
+        rel="stylesheet" />
+        <script type="text/javascript" src="files/resources/lib/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/store/json2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+                    $(document).bind("mobileinit", function()
+            {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1)
+                {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                }
+                else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1)
+                {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                }
+                else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g))
+                {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquerymobile/1.4.4/jquery.mobile-1.4.4.js">
+        </script>
+        <script type="text/javascript" src="files/resources/js/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/q/q.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/EventEmitter.js/EventEmitter.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/tv4/tv4.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/dist/localforage.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/plugins/localforage-setitems/localforage-setitems.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/plugins/localforage-find/localforage-find.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/crypto-js-md5/crypto-js-md5.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/moment/moment.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/underscore-query/underscore-query.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/offline/offline.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/client-sdk.js">
+        </script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBaXuVtO5aXlFl5j23UBKgi4I_6h9AWC1Q">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery-ui-map/jquery.ui.map.full.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/appery.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/login.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/cordova.js">
+        </script>
+        <link href="files/resources/css/mobilebase.css" rel="stylesheet" type="text/css"
+        />
+        <script type="text/javascript" src="files/views/assets/js/services/model.js">
+        </script>
+        <script type="text/javascript" src="files/views/assets/js/services/service.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+                
+        </script>
+        <div data-role="page" style="min-height:480px;" dsid="IntroDigital" id="IntroDigital"
+        class="type-interior" data-theme="f">
+            <!-- mobileheader -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="f" name="mobileheader" id="IntroDigital_mobileheader" class="IntroDigital_mobileheader">
+                <h1 dsid="mobileheader">
+                    &nbsp;
+                </h1>
+            </div>
+            <!-- mobilecontainer -->
+            <div data-role="content" id="IntroDigital_mobilecontainer" name="mobilecontainer"
+            class="IntroDigital_mobilecontainer ui-content" dsid="mobilecontainer" data-theme="f">
+                <link href="IntroDigital.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="IntroDigital.js">
+                </script>
+                <!-- mobilegrid_4 -->
+                <div class="IntroDigital_mobilegrid_4_wrapper" data-wrapper-for="mobilegrid_4">
+                    <table id="IntroDigital_mobilegrid_4" class="IntroDigital_mobilegrid_4" dsid="mobilegrid_4"
+                    name="mobilegrid_4" cellpadding=0 cellspacing=0>
+                        <col style="width:115px;" />
+                        <col style="width:auto;" />
+                        <tr class="IntroDigital_mobilegrid_4_row_0">
+                            <!-- mobilegridcell_5 -->
+                            <td id="IntroDigital_mobilegridcell_5" name="mobilegridcell_5" class="IntroDigital_mobilegridcell_5"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_2 -->
+                                    <img class="IntroDigital_mobileimage_2" src="files/views/assets/image/prathap.jpg"
+                                    id="IntroDigital_mobileimage_2" dsid="mobileimage_2" name="mobileimage_2" />
+                                </div>
+                            </td>
+                            <!-- mobilegridcell_6 -->
+                            <td id="IntroDigital_mobilegridcell_6" name="mobilegridcell_6" class="IntroDigital_mobilegridcell_6"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- spacer_10 -->
+                                    <div id="IntroDigital_spacer_10" data-role="appery_spacer" dsid="spacer_10" class='mobilespacer IntroDigital_spacer_10'>
+                                    </div>
+                                    <!-- mobilelabel_3 -->
+                                    <div name="mobilelabel_3" id="IntroDigital_mobilelabel_3" dsid="mobilelabel_3" data-role="appery_label"
+                                    class="IntroDigital_mobilelabel_3">
+                                        Prathap Thompson
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- mobilelabel_11 -->
+                <div name="mobilelabel_11" id="IntroDigital_mobilelabel_11" dsid="mobilelabel_11"
+                data-role="appery_label" class="IntroDigital_mobilelabel_11">
+                    Lead Architect with TCS BFS GARAGE with over 16 years of experience.
+                </div>
+                <!-- mobilelabel_14 -->
+                <div name="mobilelabel_14" id="IntroDigital_mobilelabel_14" dsid="mobilelabel_14"
+                data-role="appery_label" class="IntroDigital_mobilelabel_14">
+                    Have over 16 years of experience in TCS with over 10 years in Banking and Financial
+                    services spanning across retail and business banking, corporate banking and investment
+                    banking
+                </div>
+                <!-- mobilelabel_12 -->
+                <div name="mobilelabel_12" id="IntroDigital_mobilelabel_12" dsid="mobilelabel_12"
+                data-role="appery_label" class="IntroDigital_mobilelabel_12">
+                    Extensive experience in designing end to end customer facing digital platforms and
+                    mobile platforms
+                </div>
+                <!-- mobilelabel_13 -->
+                <div name="mobilelabel_13" id="IntroDigital_mobilelabel_13" dsid="mobilelabel_13"
+                data-role="appery_label" class="IntroDigital_mobilelabel_13">
+                    Invented designs to secure mobile WebViews and also to transaction sign WebViews
+                </div>
+                <!-- spacer_23 -->
+                <div id="IntroDigital_spacer_23" data-role="appery_spacer" dsid="spacer_23" class='mobilespacer IntroDigital_spacer_23'>
+                </div>
+                <!-- mobilegrid_15 -->
+                <div class="IntroDigital_mobilegrid_15_wrapper" data-wrapper-for="mobilegrid_15">
+                    <table id="IntroDigital_mobilegrid_15" class="IntroDigital_mobilegrid_15" dsid="mobilegrid_15"
+                    name="mobilegrid_15" cellpadding=0 cellspacing=0>
+                        <col style="width:auto;" />
+                        <col style="width:auto;" />
+                        <tr class="IntroDigital_mobilegrid_15_row_0">
+                            <!-- mobilegridcell_16 -->
+                            <td id="IntroDigital_mobilegridcell_16" name="mobilegridcell_16" class="IntroDigital_mobilegridcell_16"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- mobileimage_20 -->
+                                    <img class="IntroDigital_mobileimage_20" src="files/views/assets/image/athraman.jpg"
+                                    id="IntroDigital_mobileimage_20" dsid="mobileimage_20" name="mobileimage_20" />
+                                </div>
+                            </td>
+                            <!-- mobilegridcell_17 -->
+                            <td id="IntroDigital_mobilegridcell_17" name="mobilegridcell_17" class="IntroDigital_mobilegridcell_17"
+                            colspan=1 rowspan=1>
+                                <div class="cell-wrapper">
+                                    <!-- spacer_22 -->
+                                    <div id="IntroDigital_spacer_22" data-role="appery_spacer" dsid="spacer_22" class='mobilespacer IntroDigital_spacer_22'>
+                                    </div>
+                                    <!-- mobilelabel_21 -->
+                                    <div name="mobilelabel_21" id="IntroDigital_mobilelabel_21" dsid="mobilelabel_21"
+                                    data-role="appery_label" class="IntroDigital_mobilelabel_21">
+                                        Athmaraman Natarajan
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- mobilelabel_24 -->
+                <div name="mobilelabel_24" id="IntroDigital_mobilelabel_24" dsid="mobilelabel_24"
+                data-role="appery_label" class="IntroDigital_mobilelabel_24">
+                    Solution Architect with TCS BFS Channels CoE unit with over 17 years of IT experience
+                </div>
+                <!-- mobilelabel_25 -->
+                <div name="mobilelabel_25" id="IntroDigital_mobilelabel_25" dsid="mobilelabel_25"
+                data-role="appery_label" class="IntroDigital_mobilelabel_25">
+                    Over 18+ years of IT experience and with TCS for the past 14 years. Prior to joining
+                    TCS, worked in industrial IT and process automation with Intuitive Objects Technologies
+                    in engineering process space
+                </div>
+                <!-- mobilelabel_26 -->
+                <div name="mobilelabel_26" id="IntroDigital_mobilelabel_26" dsid="mobilelabel_26"
+                data-role="appery_label" class="IntroDigital_mobilelabel_26">
+                    Program Leader - BFS Channels GARAGE for creating NextGEN Digital Banking solutions
+                </div>
+                <!-- mobilelabel_27 -->
+                <div name="mobilelabel_27" id="IntroDigital_mobilelabel_27" dsid="mobilelabel_27"
+                data-role="appery_label" class="IntroDigital_mobilelabel_27">
+                    Lead Solution Architect – Played a key role in solutioning a new channel into the
+                    bank – KIOSK as part of retail banking transformation. Critical activities include
+                    initial estimation &amp; planning, architecture, design, analysis and influence COTS
+                    vs build decision
+                </div>
+            </div>
+            <!-- mobilefooter -->
+            <div data-role="footer" data-position="fixed" class="IntroDigital_mobilefooter"
+            name="mobilefooter" dsid="mobilefooter" id="IntroDigital_mobilefooter" data-theme="f">
+            </div>
+        </div>
+    </body>
+
+</html>

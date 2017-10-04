@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            oct13
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Enable all requests, inline styles, and eval() -->
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <link href="files/resources/lib/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="files/resources/lib/theme/flat-ui/flat-ui.css" rel="stylesheet" />
+        <link href="files/resources/lib/jquerymobile/1.4.4/jquery.mobile.structure-1.4.4.css"
+        rel="stylesheet" />
+        <script type="text/javascript" src="files/resources/lib/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/store/json2.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+                    $(document).bind("mobileinit", function()
+            {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1)
+                {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                }
+                else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1)
+                {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                }
+                else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g))
+                {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquerymobile/1.4.4/jquery.mobile-1.4.4.js">
+        </script>
+        <script type="text/javascript" src="files/resources/js/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/q/q.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/EventEmitter.js/EventEmitter.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/tv4/tv4.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/dist/localforage.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/plugins/localforage-setitems/localforage-setitems.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/localforage/plugins/localforage-find/localforage-find.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/crypto-js-md5/crypto-js-md5.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/moment/moment.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/underscore-query/underscore-query.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/offline/offline.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/ms_sdk_bundle/client-sdk.js">
+        </script>
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBaXuVtO5aXlFl5j23UBKgi4I_6h9AWC1Q">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/jquery-ui-map/jquery.ui.map.full.min.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/appery.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/login.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="files/resources/lib/cordova.js">
+        </script>
+        <link href="files/resources/css/mobilebase.css" rel="stylesheet" type="text/css"
+        />
+        <script type="text/javascript" src="files/views/assets/js/services/model.js">
+        </script>
+        <script type="text/javascript" src="files/views/assets/js/services/service.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+                
+        </script>
+        <div data-role="page" style="min-height:480px;" dsid="oct13" id="oct13" class="type-interior"
+        data-theme="f">
+            <!-- mobileheader1 -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="f" name="mobileheader1" id="oct13_mobileheader1" class="oct13_mobileheader1">
+                <h1 dsid="mobileheader1">
+                    Agenda
+                </h1>
+                <!-- mobilenavbar_6 -->
+                <div data-role="navbar" id="oct13_mobilenavbar_6" name="mobilenavbar_6" dsid="mobilenavbar_6"
+                class="oct13_mobilenavbar_6" data-theme="f" style="position: relative;">
+                    <ul>
+                        <!-- home_item -->
+                        <li>
+                            <a data-theme="f" data-icon="calendar" id="oct13_home_item" dsid="home_item" name="home_item">
+                            9th Oct
+                            </a>
+                        </li>
+                        <!-- products_item -->
+                        <li>
+                            <a data-theme="f" data-icon="calendar" id="oct13_products_item" dsid="products_item"
+                            name="products_item">
+                            10th Oct
+                            </a>
+                        </li>
+                        <!-- account_item -->
+                        <li>
+                            <a data-theme="f" class="ui-btn-active ui-state-persist" data-icon="calendar" id="oct13_account_item"
+                            dsid="account_item" name="account_item">
+                            13th Oct
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- mobilecontainer1 -->
+            <div data-role="content" id="oct13_mobilecontainer1" name="mobilecontainer1" class="oct13_mobilecontainer1 ui-content"
+            dsid="mobilecontainer1" data-theme="f">
+                <link href="oct13.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="oct13.js">
+                </script>
+                <!-- mobilelabel_11 -->
+                <div name="mobilelabel_11" id="oct13_mobilelabel_11" dsid="mobilelabel_11" data-role="appery_label"
+                class="oct13_mobilelabel_11">
+                    Welcome to Bangalore
+                </div>
+                <!-- mobileimage_25 -->
+                <img class="oct13_mobileimage_25" src="files/views/assets/image/a_00px_Bangalore_Palace.jpg"
+                id="oct13_mobileimage_25" dsid="mobileimage_25" name="mobileimage_25" />
+                <!-- mobilecollapsibleset_15 -->
+                <div data-role="collapsible-set" data-theme="f" data-content-theme=f data-collapsed-icon='plus'
+                data-expanded-icon='minus' name="mobilecollapsibleset_15" id="oct13_mobilecollapsibleset_15"
+                dsid="mobilecollapsibleset_15" class="oct13_mobilecollapsibleset_15">
+                    <!-- mobilecollapsblock_16 -->
+                    <div data-role="collapsible" id="oct13_mobilecollapsblock_16" name="mobilecollapsblock_16"
+                    dsid="mobilecollapsblock_16" data-collapsed="false" data-theme="b" data-content-theme="e"
+                    data-iconpos='left' class="oct13_mobilecollapsblock_16" reRender='mobilecollapsibleset_15'>
+                        <h3 id="oct13_mobilecollapsblockheader_17" name="mobilecollapsblockheader_17" dsid="mobilecollapsblockheader_17">
+                            Morning
+                        </h3>
+                        <!-- mobilecollapsblock_26 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_26" name="mobilecollapsblock_26"
+                        dsid="mobilecollapsblock_26" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_26">
+                            <h3 id="oct13_mobilecollapsblockheader_27" name="mobilecollapsblockheader_27" dsid="mobilecollapsblockheader_27">
+                                09:00 Travel from hotel to GR Tech
+                            </h3>
+                            <!-- googlemap_29 -->
+                            <div id="oct13_googlemap_29" dsid="googlemap_29" name="googlemap_29" data-role="appery_googlemap"
+                            tiggzitype="object" apperytype="object" class='oct13_googlemap_29' style='width:100%;'>
+                            </div>
+                            <ul data-role="listview" id="oct13_googlemap_29_markers" name="googlemap_29_markers"
+                            dsid="googlemap_29_markers" style="display:none">
+                                <!-- marker_30 -->
+                                <li id="oct13_marker_30" name="marker_30" dsid="marker_30" tiggzitype="marker" apperytype="marker"
+                                rendered="true" latitude="" longitude="" text="Add Components Here" address="San Francisco, CA"
+                                show_info="true" style="display:none">
+                                    <div id="oct13_marker_30_infoWindow" name="marker_30_infoWindowContent" class='oct13_marker_30'>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- mobilecollapsblock_31_157 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_157" name="mobilecollapsblock_31_157"
+                        dsid="mobilecollapsblock_31_157" data-collapsed="false" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_157">
+                            <h3 id="oct13_mobilecollapsblockheader_32_158" name="mobilecollapsblockheader_32_158"
+                            dsid="mobilecollapsblockheader_32_158">
+                                09.15 Update from TCS Management
+                            </h3>
+                            <!-- mobilegrid_34_160 -->
+                            <div class="oct13_mobilegrid_34_160_wrapper" data-wrapper-for="mobilegrid_34_160">
+                                <table id="oct13_mobilegrid_34_160" class="oct13_mobilegrid_34_160" dsid="mobilegrid_34_160"
+                                name="mobilegrid_34_160" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_160_row_0">
+                                        <!-- mobilegridcell_35_161 -->
+                                        <td id="oct13_mobilegridcell_35_161" name="mobilegridcell_35_161" class="oct13_mobilegridcell_35_161"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_162 -->
+                                                <div name="mobilelabel_39_162" id="oct13_mobilelabel_39_162" dsid="mobilelabel_39_162"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_162">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_163 -->
+                                        <td id="oct13_mobilegridcell_36_163" name="mobilegridcell_36_163" class="oct13_mobilegridcell_36_163"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_164 -->
+                                                <div name="mobilelabel_41_164" id="oct13_mobilelabel_41_164" dsid="mobilelabel_41_164"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_164">
+                                                    TCS Management + ABN RBP MT
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_160_row_1">
+                                        <!-- mobilegridcell_37_165 -->
+                                        <td id="oct13_mobilegridcell_37_165" name="mobilegridcell_37_165" class="oct13_mobilegridcell_37_165"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_166 -->
+                                                <div name="mobilelabel_40_166" id="oct13_mobilelabel_40_166" dsid="mobilelabel_40_166"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_166">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_167 -->
+                                        <td id="oct13_mobilegridcell_38_167" name="mobilegridcell_38_167" class="oct13_mobilegridcell_38_167"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_168 -->
+                                                <div name="mobilelabel_42_168" id="oct13_mobilelabel_42_168" dsid="mobilelabel_42_168"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_168">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_31_45 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_45" name="mobilecollapsblock_31_45"
+                        dsid="mobilecollapsblock_31_45" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_45">
+                            <h3 id="oct13_mobilecollapsblockheader_32_46" name="mobilecollapsblockheader_32_46"
+                            dsid="mobilecollapsblockheader_32_46">
+                                10:00 Townhall Session
+                            </h3>
+                            <!-- mobilegrid_34_48 -->
+                            <div class="oct13_mobilegrid_34_48_wrapper" data-wrapper-for="mobilegrid_34_48">
+                                <table id="oct13_mobilegrid_34_48" class="oct13_mobilegrid_34_48" dsid="mobilegrid_34_48"
+                                name="mobilegrid_34_48" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_48_row_0">
+                                        <!-- mobilegridcell_35_49 -->
+                                        <td id="oct13_mobilegridcell_35_49" name="mobilegridcell_35_49" class="oct13_mobilegridcell_35_49"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_50 -->
+                                                <div name="mobilelabel_39_50" id="oct13_mobilelabel_39_50" dsid="mobilelabel_39_50"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_50">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_51 -->
+                                        <td id="oct13_mobilegridcell_36_51" name="mobilegridcell_36_51" class="oct13_mobilegridcell_36_51"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_52 -->
+                                                <div name="mobilelabel_41_52" id="oct13_mobilelabel_41_52" dsid="mobilelabel_41_52"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_52">
+                                                    ABN AMRO + TCS Teams
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_48_row_1">
+                                        <!-- mobilegridcell_37_53 -->
+                                        <td id="oct13_mobilegridcell_37_53" name="mobilegridcell_37_53" class="oct13_mobilegridcell_37_53"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_54 -->
+                                                <div name="mobilelabel_40_54" id="oct13_mobilelabel_40_54" dsid="mobilelabel_40_54"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_54">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_55 -->
+                                        <td id="oct13_mobilegridcell_38_55" name="mobilegridcell_38_55" class="oct13_mobilegridcell_38_55"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_56 -->
+                                                <div name="mobilelabel_42_56" id="oct13_mobilelabel_42_56" dsid="mobilelabel_42_56"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_56">
+                                                    AAB
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilelabel_171 -->
+                        <div name="mobilelabel_171" id="oct13_mobilelabel_171" dsid="mobilelabel_171" data-role="appery_label"
+                        class="oct13_mobilelabel_171">
+                            Break
+                        </div>
+                        <!-- mobilecollapsblock_31_186 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_186" name="mobilecollapsblock_31_186"
+                        dsid="mobilecollapsblock_31_186" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_186">
+                            <h3 id="oct13_mobilecollapsblockheader_32_187" name="mobilecollapsblockheader_32_187"
+                            dsid="mobilecollapsblockheader_32_187">
+                                11.00 Retail Banking Kiosk
+                            </h3>
+                            <!-- mobilegrid_34_189 -->
+                            <div class="oct13_mobilegrid_34_189_wrapper" data-wrapper-for="mobilegrid_34_189">
+                                <table id="oct13_mobilegrid_34_189" class="oct13_mobilegrid_34_189" dsid="mobilegrid_34_189"
+                                name="mobilegrid_34_189" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_189_row_0">
+                                        <!-- mobilegridcell_35_190 -->
+                                        <td id="oct13_mobilegridcell_35_190" name="mobilegridcell_35_190" class="oct13_mobilegridcell_35_190"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_191 -->
+                                                <div name="mobilelabel_39_191" id="oct13_mobilelabel_39_191" dsid="mobilelabel_39_191"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_191">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_192 -->
+                                        <td id="oct13_mobilegridcell_36_192" name="mobilegridcell_36_192" class="oct13_mobilegridcell_36_192"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_193 -->
+                                                <div name="mobilelabel_41_193" id="oct13_mobilelabel_41_193" dsid="mobilelabel_41_193"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_193">
+                                                    TCS Management + ABN RBP MT
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_189_row_1">
+                                        <!-- mobilegridcell_37_194 -->
+                                        <td id="oct13_mobilegridcell_37_194" name="mobilegridcell_37_194" class="oct13_mobilegridcell_37_194"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_195 -->
+                                                <div name="mobilelabel_40_195" id="oct13_mobilelabel_40_195" dsid="mobilelabel_40_195"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_195">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_196 -->
+                                        <td id="oct13_mobilegridcell_38_196" name="mobilegridcell_38_196" class="oct13_mobilegridcell_38_196"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_197 -->
+                                                <div name="mobilelabel_42_197" id="oct13_mobilelabel_42_197" dsid="mobilelabel_42_197"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_197">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_31_199 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_199" name="mobilecollapsblock_31_199"
+                        dsid="mobilecollapsblock_31_199" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_199">
+                            <h3 id="oct13_mobilecollapsblockheader_32_200" name="mobilecollapsblockheader_32_200"
+                            dsid="mobilecollapsblockheader_32_200">
+                                11.15 Delivery Enabler Session Corporate Update
+                            </h3>
+                            <!-- mobilegrid_34_202 -->
+                            <div class="oct13_mobilegrid_34_202_wrapper" data-wrapper-for="mobilegrid_34_202">
+                                <table id="oct13_mobilegrid_34_202" class="oct13_mobilegrid_34_202" dsid="mobilegrid_34_202"
+                                name="mobilegrid_34_202" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_202_row_0">
+                                        <!-- mobilegridcell_35_203 -->
+                                        <td id="oct13_mobilegridcell_35_203" name="mobilegridcell_35_203" class="oct13_mobilegridcell_35_203"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_204 -->
+                                                <div name="mobilelabel_39_204" id="oct13_mobilelabel_39_204" dsid="mobilelabel_39_204"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_204">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_205 -->
+                                        <td id="oct13_mobilegridcell_36_205" name="mobilegridcell_36_205" class="oct13_mobilegridcell_36_205"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_206 -->
+                                                <div name="mobilelabel_41_206" id="oct13_mobilelabel_41_206" dsid="mobilelabel_41_206"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_206">
+                                                    TCS Management + ABN RBP MT
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_202_row_1">
+                                        <!-- mobilegridcell_37_207 -->
+                                        <td id="oct13_mobilegridcell_37_207" name="mobilegridcell_37_207" class="oct13_mobilegridcell_37_207"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_208 -->
+                                                <div name="mobilelabel_40_208" id="oct13_mobilelabel_40_208" dsid="mobilelabel_40_208"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_208">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_209 -->
+                                        <td id="oct13_mobilegridcell_38_209" name="mobilegridcell_38_209" class="oct13_mobilegridcell_38_209"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_210 -->
+                                                <div name="mobilelabel_42_210" id="oct13_mobilelabel_42_210" dsid="mobilelabel_42_210"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_210">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilelabel_211 -->
+                        <div name="mobilelabel_211" id="oct13_mobilelabel_211" dsid="mobilelabel_211" data-role="appery_label"
+                        class="oct13_mobilelabel_211">
+                            Lunch
+                        </div>
+                    </div>
+                    <!-- mobilecollapsblock_19 -->
+                    <div data-role="collapsible" id="oct13_mobilecollapsblock_19" name="mobilecollapsblock_19"
+                    dsid="mobilecollapsblock_19" data-collapsed="true" data-theme="b" data-content-theme="e"
+                    data-iconpos='left' class="oct13_mobilecollapsblock_19" reRender='mobilecollapsibleset_15'>
+                        <h3 id="oct13_mobilecollapsblockheader_20" name="mobilecollapsblockheader_20" dsid="mobilecollapsblockheader_20">
+                            Aftenoon
+                        </h3>
+                        <!-- mobilecollapsblock_31_87 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_87" name="mobilecollapsblock_31_87"
+                        dsid="mobilecollapsblock_31_87" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_87">
+                            <h3 id="oct13_mobilecollapsblockheader_32_88" name="mobilecollapsblockheader_32_88"
+                            dsid="mobilecollapsblockheader_32_88">
+                                01:15 Joining Team for Agile Ceremonies
+                            </h3>
+                            <!-- mobilegrid_34_90 -->
+                            <div class="oct13_mobilegrid_34_90_wrapper" data-wrapper-for="mobilegrid_34_90">
+                                <table id="oct13_mobilegrid_34_90" class="oct13_mobilegrid_34_90" dsid="mobilegrid_34_90"
+                                name="mobilegrid_34_90" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_90_row_0">
+                                        <!-- mobilegridcell_35_91 -->
+                                        <td id="oct13_mobilegridcell_35_91" name="mobilegridcell_35_91" class="oct13_mobilegridcell_35_91"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_92 -->
+                                                <div name="mobilelabel_39_92" id="oct13_mobilelabel_39_92" dsid="mobilelabel_39_92"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_92">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_93 -->
+                                        <td id="oct13_mobilegridcell_36_93" name="mobilegridcell_36_93" class="oct13_mobilegridcell_36_93"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_94 -->
+                                                <div name="mobilelabel_41_94" id="oct13_mobilelabel_41_94" dsid="mobilelabel_41_94"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_94">
+                                                    ABNAMRO + TCS Team
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_90_row_1">
+                                        <!-- mobilegridcell_37_95 -->
+                                        <td id="oct13_mobilegridcell_37_95" name="mobilegridcell_37_95" class="oct13_mobilegridcell_37_95"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_96 -->
+                                                <div name="mobilelabel_40_96" id="oct13_mobilelabel_40_96" dsid="mobilelabel_40_96"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_96">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_97 -->
+                                        <td id="oct13_mobilegridcell_38_97" name="mobilegridcell_38_97" class="oct13_mobilegridcell_38_97"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_98 -->
+                                                <div name="mobilelabel_42_98" id="oct13_mobilelabel_42_98" dsid="mobilelabel_42_98"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_98">
+                                                    TCS
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilelabel_212 -->
+                        <div name="mobilelabel_212" id="oct13_mobilelabel_212" dsid="mobilelabel_212" data-role="appery_label"
+                        class="oct13_mobilelabel_212">
+                            Break
+                        </div>
+                        <!-- mobilecollapsblock_31_100 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_100" name="mobilecollapsblock_31_100"
+                        dsid="mobilecollapsblock_31_100" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_100">
+                            <h3 id="oct13_mobilecollapsblockheader_32_101" name="mobilecollapsblockheader_32_101"
+                            dsid="mobilecollapsblockheader_32_101">
+                                03.00 High Tea+ Certification Distribution
+                            </h3>
+                            <!-- mobilegrid_34_103 -->
+                            <div class="oct13_mobilegrid_34_103_wrapper" data-wrapper-for="mobilegrid_34_103">
+                                <table id="oct13_mobilegrid_34_103" class="oct13_mobilegrid_34_103" dsid="mobilegrid_34_103"
+                                name="mobilegrid_34_103" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_103_row_0">
+                                        <!-- mobilegridcell_35_104 -->
+                                        <td id="oct13_mobilegridcell_35_104" name="mobilegridcell_35_104" class="oct13_mobilegridcell_35_104"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_105 -->
+                                                <div name="mobilelabel_39_105" id="oct13_mobilelabel_39_105" dsid="mobilelabel_39_105"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_105">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_106 -->
+                                        <td id="oct13_mobilegridcell_36_106" name="mobilegridcell_36_106" class="oct13_mobilegridcell_36_106"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_107 -->
+                                                <div name="mobilelabel_41_107" id="oct13_mobilelabel_41_107" dsid="mobilelabel_41_107"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_107">
+                                                    ABNAMRO + TCS Teams
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_103_row_1">
+                                        <!-- mobilegridcell_37_108 -->
+                                        <td id="oct13_mobilegridcell_37_108" name="mobilegridcell_37_108" class="oct13_mobilegridcell_37_108"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_109 -->
+                                                <div name="mobilelabel_40_109" id="oct13_mobilelabel_40_109" dsid="mobilelabel_40_109"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_109">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_110 -->
+                                        <td id="oct13_mobilegridcell_38_110" name="mobilegridcell_38_110" class="oct13_mobilegridcell_38_110"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_111 -->
+                                                <div name="mobilelabel_42_111" id="oct13_mobilelabel_42_111" dsid="mobilelabel_42_111"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_111">
+                                                    All
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mobilecollapsblock_22 -->
+                    <div data-role="collapsible" id="oct13_mobilecollapsblock_22" name="mobilecollapsblock_22"
+                    dsid="mobilecollapsblock_22" data-collapsed="true" data-theme="b" data-content-theme="e"
+                    data-iconpos='left' class="oct13_mobilecollapsblock_22" reRender='mobilecollapsibleset_15'>
+                        <h3 id="oct13_mobilecollapsblockheader_23" name="mobilecollapsblockheader_23" dsid="mobilecollapsblockheader_23">
+                            Evening
+                        </h3>
+                        <!-- mobilecollapsblock_31_173 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_173" name="mobilecollapsblock_31_173"
+                        dsid="mobilecollapsblock_31_173" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_173">
+                            <h3 id="oct13_mobilecollapsblockheader_32_174" name="mobilecollapsblockheader_32_174"
+                            dsid="mobilecollapsblockheader_32_174">
+                                04.00 Wrap Up and Thank You
+                            </h3>
+                            <!-- mobilegrid_34_176 -->
+                            <div class="oct13_mobilegrid_34_176_wrapper" data-wrapper-for="mobilegrid_34_176">
+                                <table id="oct13_mobilegrid_34_176" class="oct13_mobilegrid_34_176" dsid="mobilegrid_34_176"
+                                name="mobilegrid_34_176" cellpadding=0 cellspacing=0>
+                                    <col style="width:auto;" />
+                                    <col style="width:auto;" />
+                                    <tr class="oct13_mobilegrid_34_176_row_0">
+                                        <!-- mobilegridcell_35_177 -->
+                                        <td id="oct13_mobilegridcell_35_177" name="mobilegridcell_35_177" class="oct13_mobilegridcell_35_177"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_39_178 -->
+                                                <div name="mobilelabel_39_178" id="oct13_mobilelabel_39_178" dsid="mobilelabel_39_178"
+                                                data-role="appery_label" class="oct13_mobilelabel_39_178">
+                                                    Participants
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_36_179 -->
+                                        <td id="oct13_mobilegridcell_36_179" name="mobilegridcell_36_179" class="oct13_mobilegridcell_36_179"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_41_180 -->
+                                                <div name="mobilelabel_41_180" id="oct13_mobilelabel_41_180" dsid="mobilelabel_41_180"
+                                                data-role="appery_label" class="oct13_mobilelabel_41_180">
+                                                    TCS Management + ABN RBP MT
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="oct13_mobilegrid_34_176_row_1">
+                                        <!-- mobilegridcell_37_181 -->
+                                        <td id="oct13_mobilegridcell_37_181" name="mobilegridcell_37_181" class="oct13_mobilegridcell_37_181"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_40_182 -->
+                                                <div name="mobilelabel_40_182" id="oct13_mobilelabel_40_182" dsid="mobilelabel_40_182"
+                                                data-role="appery_label" class="oct13_mobilelabel_40_182">
+                                                    Owner
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- mobilegridcell_38_183 -->
+                                        <td id="oct13_mobilegridcell_38_183" name="mobilegridcell_38_183" class="oct13_mobilegridcell_38_183"
+                                        colspan=1 rowspan=1>
+                                            <div class="cell-wrapper">
+                                                <!-- mobilelabel_42_184 -->
+                                                <div name="mobilelabel_42_184" id="oct13_mobilelabel_42_184" dsid="mobilelabel_42_184"
+                                                data-role="appery_label" class="oct13_mobilelabel_42_184">
+                                                    All
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- mobilecollapsblock_31_143 -->
+                        <div data-role="collapsible" id="oct13_mobilecollapsblock_31_143" name="mobilecollapsblock_31_143"
+                        dsid="mobilecollapsblock_31_143" data-collapsed="true" data-theme="e" data-content-theme="e"
+                        data-iconpos='left' class="oct13_mobilecollapsblock_31_143">
+                            <h3 id="oct13_mobilecollapsblockheader_32_144" name="mobilecollapsblockheader_32_144"
+                            dsid="mobilecollapsblockheader_32_144">
+                                05.00 Drop to Hotel
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- mobilefooter1 -->
+            <div data-role="footer" data-position="fixed" class="oct13_mobilefooter1" name="mobilefooter1"
+            dsid="mobilefooter1" id="oct13_mobilefooter1" data-theme="f">
+            </div>
+        </div>
+    </body>
+
+</html>
